@@ -122,7 +122,7 @@ Flotr.addPlugin('hit', {
           offset*2
         );
       }
-      D.hide(this.mouseTrack);
+      if(this.mouseTrack)D.hide(this.mouseTrack);
       this.prevHit = null;
     }
     octx.restore();
@@ -321,8 +321,8 @@ Flotr.addPlugin('hit', {
       nearest: n,
       fraction: n.fraction
     });
-    if (_.isNull(content) || _.isUndefined(content)) {
-      D.hide(mouseTrack);
+    if (_.isNull(mouseTrack) || _.isNull(content) || _.isUndefined(content)) {
+      if(mouseTrack)D.hide(mouseTrack);
       return;
     } else {
       mouseTrack.innerHTML = content;
